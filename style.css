@@ -1,0 +1,185 @@
+/* Reset CSS Dasar */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: #f4f4f4;
+    padding: 10px;
+}
+
+/* Border styling untuk memisahkan setiap blok seperti di gambar */
+header, nav, section, aside, footer {
+    border: 1px solid #7cb3c5;
+    background-color: #ffffff;
+    margin-bottom: 5px;
+    padding: 15px;
+}
+
+/* --- TAMPILAN SMARTPHONE (Default / Mobile First) --- */
+/* Lebar: Header 100%, Nav 100%, Section 100%, Aside 100%, Footer 100% */
+header {
+    width: 100%;
+}
+.header-content {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+.logo {
+    width: 60px;
+    height: 60px;
+    background-color: #4682B4;
+    transform: rotate(45deg);
+    margin: 15px;
+}
+
+.main-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+nav {
+    width: 100%;
+}
+nav ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+nav a {
+    text-decoration: none;
+    color: #333;
+    font-size: 14px;
+    display: block;
+    padding: 5px 0;
+}
+nav a:hover {
+    color: #4682B4;
+    font-weight: bold;
+}
+
+section {
+    width: 100%;
+    min-height: 250px;
+}
+.konten {
+    display: none; /* Disembunyikan secara default */
+}
+.konten.aktif {
+    display: block; /* Hanya tampil jika memiliki class 'aktif' */
+}
+.isi-konten p, .isi-konten ul {
+    margin-top: 10px;
+    line-height: 1.6;
+    font-size: 14px;
+}
+.isi-konten ul {
+    padding-left: 20px;
+}
+
+aside {
+    width: 100%;
+}
+aside ul {
+    list-style: none;
+    margin-top: 10px;
+}
+aside li {
+    font-style: italic;
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 5px;
+}
+
+footer {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    gap: 10px;
+    font-size: 12px;
+}
+
+/* --- TAMPILAN TABLET PORTRAIT --- */
+/* Breakpoint sekitar 600px */
+/* Lebar tetap sama 100%, tapi Nav menyamping (horizontal) */
+@media screen and (min-width: 600px) {
+    nav ul {
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 15px;
+    }
+    footer {
+        flex-direction: row;
+        justify-content: space-between;
+        text-align: left;
+    }
+    .footer-center {
+        text-align: center;
+    }
+    .footer-right {
+        text-align: right;
+    }
+}
+
+/* --- TAMPILAN TABLET LANDSCAPE --- */
+/* Breakpoint sekitar 768px */
+/* Header 100%, Nav 25%, Section 75%, Aside 100% (dibawah nav & section) */
+@media screen and (min-width: 768px) {
+    .main-container {
+        display: grid;
+        grid-template-columns: 25% 75%;
+        grid-template-areas: 
+            "nav section"
+            "aside aside";
+    }
+    
+    nav {
+        grid-area: nav;
+        width: 100%; /* Dari grid-column 25% */
+        height: 100%;
+        margin-bottom: 0;
+    }
+    nav ul {
+        flex-direction: column;
+    }
+    
+    section {
+        grid-area: section;
+        width: 100%; /* Dari grid-column 75% */
+        margin-bottom: 0;
+        border-left: none; /* Menghindari border dobel */
+    }
+    
+    aside {
+        grid-area: aside;
+        width: 100%; /* 100% di barisnya sendiri */
+        margin-top: 5px;
+    }
+}
+
+/* --- TAMPILAN DESKTOP --- */
+/* Breakpoint sekitar 1024px */
+/* Header 100%, Nav 25%, Section 50%, Aside 25% */
+@media screen and (min-width: 1024px) {
+    .main-container {
+        grid-template-columns: 25% 50% 25%;
+        grid-template-areas: "nav section aside";
+    }
+
+    aside {
+        grid-area: aside;
+        width: 100%; /* Dari grid-column 25% */
+        margin-top: 0;
+        border-left: none; /* Menghindari border dobel */
+    }
+}
