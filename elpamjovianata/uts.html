@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profil Mahasiswa</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <div class="header-content">
+            <div class="logo"></div> <!-- Pengganti ikon belah ketupat/profil -->
+            <h1>Profil Mahasiswa</h1>
+        </div>
+    </header>
+
+    <div class="main-container">
+        <nav>
+            <ul>
+                <li><a onclick="tampilkanKonten('biodata')">Biodata</a></li>
+                <li><a onclick="tampilkanKonten('pendidikan')">Pendidikan</a></li>
+                <li><a onclick="tampilkanKonten('pengalaman')">Pengalaman</a></li>
+                <li><a onclick="tampilkanKonten('keahlian')">Keahlian</a></li>
+                <li><a onclick="tampilkanKonten('publikasi')">Publikasi</a></li>
+            </ul>
+        </nav>
+
+        <section id="konten-utama">
+            <!-- Konten Biodata (Default Tampil) -->
+            <div id="biodata" class="konten aktif">
+                <h2>Biodata</h2>
+                <div class="isi-konten">
+                    <p><strong>NIM:</strong></p>
+                    <p><strong>Nama:</strong></p>
+                    <p><strong>Agama:</strong></p>
+                    <p><strong>Tanggal Lahir:</strong></p>
+                    <p><strong>Tempat Lahir:</strong></p>
+                </div>
+            </div>
+
+            <!-- Konten Pendidikan -->
+            <div id="pendidikan" class="konten">
+                <h2>Pendidikan</h2>
+                <div class="isi-konten">
+                    <ul>
+                        <li></li>
+                        <li></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Konten Pengalaman -->
+            <div id="pengalaman" class="konten">
+                <h2>Pengalaman</h2>
+                <div class="isi-konten">
+                    <ul>
+                        <li>-</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Konten Keahlian -->
+            <div id="keahlian" class="konten">
+                <h2>Keahlian</h2>
+                <div class="isi-konten">
+                    <ul>
+                        <li>HTML, CSS, JavaScript</li>
+                        <li>UI/UX Design</li>
+                        <li>Database Management</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Konten Publikasi -->
+            <div id="publikasi" class="konten">
+                <h2>Publikasi</h2>
+                <div class="isi-konten">
+                    <ul>
+                        <li></li>
+                        <li></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <aside>
+            <h2>Hobi:</h2>
+            <ul>
+                <li>Bermain Musik</li>
+                <li>Jalan Jalan</li>
+                <li>Pemrograman</li>
+                <li>Mendengarkan Musik</li>
+            </ul>
+        </aside>
+    </div>
+
+    <footer>
+        <div class="footer-left">
+            <p>Instagram: @</p>
+        </div>
+        <div class="footer-center">
+            <p>&copy; Copyright 2026. All Rights Reserved</p>
+        </div>
+        <div class="footer-right">
+            <h3>Profil</h3>
+            <p>Mahasiswa Sistem Informasi 2025</p>
+        </div>
+    </footer>
+
+    <!-- Script untuk navigasi dinamis -->
+    <script>
+        function tampilkanKonten(idKonten) {
+            // Sembunyikan semua elemen dengan class 'konten'
+            let semuaKonten = document.querySelectorAll('.konten');
+            semuaKonten.forEach(function(elemen) {
+                elemen.classList.remove('aktif');
+            });
+
+            // Tampilkan elemen yang dipilih
+            let kontenAktif = document.getElementById(idKonten);
+            if(kontenAktif) {
+                kontenAktif.classList.add('aktif');
+            }
+        }
+    </script>
+</body>
+</html>
